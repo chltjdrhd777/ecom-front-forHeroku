@@ -137,10 +137,6 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
     );
   };
 
-  const onClickLogo = () => {
-    window.location.href = "/";
-  };
-
   //*register
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
