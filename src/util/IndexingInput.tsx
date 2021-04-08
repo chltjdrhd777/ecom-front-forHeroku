@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectProduct } from "redux/mainReducer";
 import styled from "styled-components/macro";
-import product, { ProductBaseDocumentType } from "../../../server/src/model/product";
 
 interface InputProps {
   targetData: any[];
