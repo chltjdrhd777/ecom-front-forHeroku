@@ -15,9 +15,9 @@ function ProductList(props: PramsType2) {
       switch (typeChecker.type) {
         case "store":
           return <StorepageForSamsung {...props} />;
-
+        /* 
         case "page":
-          return <StorepageForApple {...props} />;
+          return <StorepageForApple {...props} />; */
       }
     }
   };

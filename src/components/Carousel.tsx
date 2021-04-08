@@ -57,13 +57,7 @@ function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype
   };
 
   const onClickBanner = () => {
-    RouterProps &&
-      RouterProps.history.push(
-        "/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"
-        /*    window.location.hostname === "localhost" ? "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store" : "" */
-      );
-    /*  window.history.pushState({ whatyouget: { name: "whow", age: 2123123 } }, "", "/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"); */
-    /*   window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"; */
+    RouterProps && RouterProps.history.push("/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store");
   };
 
   const imageData = pageData.banners && pageData.banners.map((each: any) => each.img.substring(22));

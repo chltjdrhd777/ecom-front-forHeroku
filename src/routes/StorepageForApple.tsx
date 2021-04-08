@@ -10,7 +10,7 @@ import Cards from "components/Cards";
 import CarouselMaker from "components/Carousel";
 
 function StorepageForApple(props: PramsType2) {
-  const dispatch = useDispatch();
+  /*   const dispatch = useDispatch();
   const typeCheck = paramRendor(props.location.search) as { categoryId: string; type: string };
   const pageData = useSelector(selectProduct).pageInfo;
   const { slug } = props.match.params;
@@ -19,14 +19,10 @@ function StorepageForApple(props: PramsType2) {
     dispatch(getProductBySlug(slug));
     dispatch(getPage(typeCheck));
   }, []);
+ */
+  return <>{/*       <CarouselMaker typecheck={typeCheck} pageData={pageData} />
 
-  return (
-    <>
-      <CarouselMaker typecheck={typeCheck} pageData={pageData} />
-
-      <Cards pageData={pageData} />
-    </>
-  );
+      <Cards pageData={pageData} /> */}</>;
 }
 
 export default StorepageForApple;

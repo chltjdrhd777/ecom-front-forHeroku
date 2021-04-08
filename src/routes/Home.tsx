@@ -11,18 +11,16 @@ import { getProductBySlug, getPage } from "redux/productslice";
 function Home(props: RouteComponentProps) {
   const pageData = useSelector(selectProduct).pageInfo;
   const dispatch = useDispatch();
-  const slug = "Apple";
   const typeCheck = { categoryId: "6038a7e70125eb12546d0d8c", type: "page" };
 
   useEffect(() => {
-    dispatch(getProductBySlug(slug));
     dispatch(getPage(typeCheck));
   }, []);
 
   return (
     <HeaderLayout>
       <>
-        <CarouselMaker typecheck={typeCheck} pageData={pageData} RouterProps={props} />
+        <CarouselMaker pageData={pageData} RouterProps={props} />
 
         <Cards pageData={pageData} />
       </>
