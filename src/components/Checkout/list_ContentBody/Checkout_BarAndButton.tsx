@@ -1,6 +1,5 @@
 import React from "react";
 import { IoIosCheckmark } from "react-icons/io";
-import { UserBaseDocumentType } from "../../../../../server/src/model/UserModel";
 
 interface ButtonProps {
   userData?: /* UserBaseDocumentType; */ any;

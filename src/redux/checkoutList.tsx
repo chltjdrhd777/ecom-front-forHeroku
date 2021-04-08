@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Address_DocumentType_forFront } from "../../../server/src/model/address";
 
 //typeDef
 

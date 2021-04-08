@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { PageBaseDocumentType } from "../../../server/src/model/page";
-import { BiLeftArrow, BiRightArrow } from "react-icons/all";
+import { BiLeftArrow, BiRightArrow, RiContactsBookLine } from "react-icons/all";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 export interface CarouselAndCardsProptype {
   typecheck?: { categoryId: string; type: string };
   pageData?: any /* PageBaseDocumentType; */;
+  RouterProps?: RouteComponentProps;
 }
 
-function Carousel({ typecheck, pageData }: CarouselAndCardsProptype) {
+function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype) {
   //* for banner
   const [bannerIndex, setBannerIndex] = useState(0);
   const [isClicked, setIsclicked] = useState(false);
@@ -21,7 +22,7 @@ function Carousel({ typecheck, pageData }: CarouselAndCardsProptype) {
     }
   };
 
-  let autoTimeout = setTimeout(autoBanner, 2000);
+  /* let autoTimeout = setTimeout(autoBanner, 2000);
 
   if (isClicked) {
     clearTimeout(autoTimeout);
@@ -33,7 +34,7 @@ function Carousel({ typecheck, pageData }: CarouselAndCardsProptype) {
         setIsclicked(false);
       }, 2000);
     }
-  }, [isClicked]);
+  }, [isClicked]); */
 
   const bannerRight = () => {
     setIsclicked(true);
@@ -54,7 +55,13 @@ function Carousel({ typecheck, pageData }: CarouselAndCardsProptype) {
   };
 
   const onClickBanner = () => {
-    window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store";
+    RouterProps &&
+      RouterProps.history.push(
+        "/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"
+        /*    window.location.hostname === "localhost" ? "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store" : "" */
+      );
+    /*  window.history.pushState({ whatyouget: { name: "whow", age: 2123123 } }, "", "/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"); */
+    /*   window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"; */
   };
 
   return (

@@ -36,7 +36,16 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
         <li key={category._id}>
           {category.parentId && category.name !== "Mobiles" ? (
             /*    <a href={`http://localhost:8070/${category.slug}?categoryId=${category._id}&type=${category.type}`}>{category.name}</a> */
-            <Link to={`http://localhost:8070/${category.slug}?categoryId=${category._id}&type=${category.type}`}>{category.name}</Link>
+            <Link
+              to={
+                `/${category.slug}?categoryId=${category._id}&type=${category.type}`
+                /*  window.location.hostname === "localhost"
+                  ? `http://localhost:8070/${category.slug}?categoryId=${category._id}&type=${category.type}`
+                  : `http://localhost:8070/${category.slug}?categoryId=${category._id}&type=${category.type}` */
+              }
+            >
+              {category.name}
+            </Link>
           ) : category.parentId && category.name === "Mobiles" ? (
             <span style={{ fontWeight: "bold" }}>{category.name}</span>
           ) : (

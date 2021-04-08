@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios/axios";
-import { UserBaseDocumentType } from "../../../server/src/model/UserModel";
 
 //typeDef
 

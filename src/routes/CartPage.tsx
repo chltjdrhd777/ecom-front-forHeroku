@@ -58,7 +58,8 @@ function CartPage(props: RouteComponentProps) {
               {everyItemArrayByKey.length === 0 ? (
                 <button
                   onClick={() => {
-                    window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store";
+                    props.history.push("/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store");
+                    /*              window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"; */
                   }}
                 >
                   shopping now

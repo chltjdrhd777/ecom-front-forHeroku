@@ -22,7 +22,7 @@ function Home(props: RouteComponentProps) {
   return (
     <HeaderLayout>
       <>
-        <CarouselMaker typecheck={typeCheck} pageData={pageData} />
+        <CarouselMaker typecheck={typeCheck} pageData={pageData} RouterProps={props} />
 
         <Cards pageData={pageData} />
       </>

@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios/axios";
-import { ProductBaseDocumentType } from "../../../server/src/model/product";
-import { PageBaseDocumentType } from "../../../server/src/model/page";
 
 export interface ProductsType2 {
   docs: any /* ProductBaseDocumentType[] */;

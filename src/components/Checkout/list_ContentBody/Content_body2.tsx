@@ -10,7 +10,6 @@ import { loading } from "redux/cartSlice";
 import { setProcessCheck, setSelectedAddress } from "redux/checkoutList";
 import { selectAddress } from "redux/mainReducer";
 import styled from "styled-components";
-import { Address_DocumentType, Address_DocumentType_forFront } from "../../../../../server/src/model/address";
 import AddressInputs from "./AddressInputs";
 
 export const Contentbody2context = createContext<{ resetValue: boolean } | undefined>(undefined);

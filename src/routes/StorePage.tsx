@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectProduct } from "redux/mainReducer";
 import { getProductBySlug } from "redux/productslice";
 import styled from "styled-components/macro";
-import { ProductBaseDocumentType } from "../../../server/src/model/product";
 import { PramsType2 } from "./ProductList";
 import { Link } from "react-router-dom";
 
@@ -15,12 +14,9 @@ function StorePageForSamsung(props: PramsType2) {
   } = useSelector(selectProduct);
   const { slug } = props.match.params;
 
-  /*   useEffect(() => {
-    dispatch(getProductBySlug(slug));
-  }, []); */
-
   const generatePublicUrl = (query: string) => {
-    return `http://localhost:8080/public/${query}`;
+    let host = window.location.hostname === "localhost" ? "http://localhost:8080" : "https://flipkartserverdelpoyed.herokuapp.com";
+    return `${host}/public/${query}`;
   };
 
   const priceRange: { [key: string]: string } = {
@@ -50,6 +46,7 @@ function StorePageForSamsung(props: PramsType2) {
                             className="product_container"
                             key={index}
                             style={{ color: "black", textDecoration: "none" }}
+                            target="_blank"
                           >
                             <div className="product_images">
                               <img src={generatePublicUrl(each.productPictures[0].img)} alt="" />

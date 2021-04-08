@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction, Dispatch } from "@reduxjs/toolkit";
 import axios from "../axios/axios";
-import { Address_DocumentType, UserAddress_DocumentType } from "../../../server/src/model/address";
 import { NativeError } from "mongoose";
 import { AxiosResponse } from "axios";
 

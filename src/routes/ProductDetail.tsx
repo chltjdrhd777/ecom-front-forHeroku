@@ -20,7 +20,9 @@ function ProductDetail(props: RouteComponentProps<{ productId: string; productSl
   const { params, path, url } = props.match;
   const { productId, productSlug } = params;
   const generatePublicUrl = (query: string) => {
-    return `http://localhost:8080/public/${query}`;
+    let host = window.location.hostname === "localhost" ? "http://localhost:8080" : "https://flipkartserverdelpoyed.herokuapp.com";
+
+    return `${host}/public/${query}`;
   };
 
   //* for the category family tree

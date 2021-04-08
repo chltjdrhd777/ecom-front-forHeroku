@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
 import { useEffect } from "react";
-import { Address_DocumentType_forFront } from "../../../../../server/src/model/address";
 import AddressInput_form from "./AddressInput_form";
 import { useContentBody2context } from "./Content_body2";
 
