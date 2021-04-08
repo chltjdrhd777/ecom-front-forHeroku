@@ -15,7 +15,7 @@ function Home(props: RouteComponentProps) {
   const typeCheck = { categoryId: "6038a7e70125eb12546d0d8c", type: "page" };
 
   useEffect(() => {
-    /*  dispatch(getProductBySlug(slug)); */
+    dispatch(getProductBySlug(slug));
     dispatch(getPage(typeCheck));
   }, []);
 
