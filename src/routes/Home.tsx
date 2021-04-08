@@ -26,18 +26,8 @@ function Home(props: RouteComponentProps) {
 
         <Cards pageData={pageData} />
       </>
-      {/*     <Styld_home_div className="centering">
-        <h1>hello</h1>
-        <p>please start your shopping</p>
-      </Styld_home_div> */}
     </HeaderLayout>
   );
 }
-
-const Styld_home_div = styled.div`
-  width: 100%;
-  height: 85vh;
-  flex-direction: column;
-`;
 
 export default Home;

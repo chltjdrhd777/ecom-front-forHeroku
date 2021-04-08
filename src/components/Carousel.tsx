@@ -14,13 +14,14 @@ function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype
   const [bannerIndex, setBannerIndex] = useState(0);
   const [isClicked, setIsclicked] = useState(false);
 
-  const autoBanner = () => {
+  //! auto banner part =>remove for test
+  /* const autoBanner = () => {
     if (bannerIndex === 2) {
       setBannerIndex(0);
     } else {
       setBannerIndex(bannerIndex + 1);
     }
-  };
+  }; */
 
   /* let autoTimeout = setTimeout(autoBanner, 2000);
 
@@ -35,6 +36,7 @@ function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype
       }, 2000);
     }
   }, [isClicked]); */
+  //! ///////////////////////////////////
 
   const bannerRight = () => {
     setIsclicked(true);
@@ -64,6 +66,8 @@ function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype
     /*   window.location.href = "http://localhost:8070/Samsung?categoryId=6038a7c80125eb12546d0d8a&type=store"; */
   };
 
+  const imageData = pageData.banners && pageData.banners.map((each: any) => each.img.substring(22));
+
   return (
     <Conatiner>
       <p onClick={onClickBanner}>buy now</p>
@@ -71,8 +75,18 @@ function Carousel({ typecheck, pageData, RouterProps }: CarouselAndCardsProptype
         <BiLeftArrow />
       </Button1>
       <SliderContainer index={bannerIndex}>
-        {pageData?.banners &&
-          pageData.banners.map((eachBanner: any, index: any) => <BannerImg key={index} src={eachBanner.img} onClick={onClickBanner} />)}
+        {imageData &&
+          imageData.map((eachBanner: any, index: any) => (
+            <BannerImg
+              key={index}
+              src={
+                window.location.hostname === "localhost"
+                  ? `http://localhost:8080/${eachBanner}`
+                  : `https://flipkartserverdelpoyed.herokuapp.com/${eachBanner}`
+              }
+              onClick={onClickBanner}
+            />
+          ))}
       </SliderContainer>
       <Button2 onClick={bannerRight}>
         <BiRightArrow />

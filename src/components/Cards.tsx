@@ -3,13 +3,22 @@ import styled from "styled-components/macro";
 import { CarouselAndCardsProptype } from "components/Carousel";
 
 function Cards({ typecheck, pageData }: CarouselAndCardsProptype) {
+  const imageData = pageData.products && pageData.products.map((each: any) => each.img.substring(22));
+
   return (
     <CardContainerSection>
-      {pageData?.products &&
-        pageData.products.map((eachProductImg: any, index: any) => {
+      {imageData &&
+        imageData.map((eachProductImg: any, index: any) => {
           return (
             <div className="eachCardDiv" key={index}>
-              <img src={eachProductImg.img} alt="" />
+              <img
+                src={
+                  window.location.hostname === "localhost"
+                    ? `http://localhost:8080/${eachProductImg}`
+                    : `https://flipkartserverdelpoyed.herokuapp.com/${eachProductImg}`
+                }
+                alt=""
+              />
             </div>
           );
         })}
