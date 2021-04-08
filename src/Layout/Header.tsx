@@ -91,7 +91,7 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
           </section>
 
           <form
-            className="left_mainSection"
+            className="left_mainSection flex-column"
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
               e.preventDefault();
               if (email === "" || password === "") {
@@ -128,12 +128,8 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
               onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             />
 
-            <div className="login_buttons">
+            <div className="login_buttons flex-column">
               <button className="login_button">Login</button>
-              <p>OR</p>
-              <button className="otp_button" type="button">
-                Request OTP
-              </button>
             </div>
           </form>
         </LoginModalBody>
@@ -575,14 +571,14 @@ const LoginModalBody = styled.div`
       text-align: center;
       box-sizing: border-box;
       padding: 10px;
-      height: 80%;
+      height: 30%;
 
       & p {
         margin: 2rem 0;
       }
 
       & button {
-        height: 15%;
+        height: 50%;
         border: none;
         border-radius: 3px;
         font-size: 1rem;

@@ -51,7 +51,7 @@ interface GetPagePayloadType {
 export const getPage = createAsyncThunk("page/getPage", async ({ categoryId, type }: GetPagePayloadType) => {
   try {
     const response = await axios.get(`page/getPage/${categoryId}/${type}`);
-    console.log(response);
+
     return response;
   } catch (err) {
     return err.response;

@@ -36,6 +36,7 @@ const GlobalCSS = createGlobalStyle`
   .flex-column{
     display:flex;
     flex-direction:column;
+    justify-content:center;
   }
 
   a{

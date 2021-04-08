@@ -63,6 +63,7 @@ const ModalSection = styled.section<ModalProps>`
 const ModalMainDiv = styled.div`
   width: 60%;
   height: 60%;
+  min-height: 500px;
   background-color: white;
   position: absolute;
   top: 15%;
