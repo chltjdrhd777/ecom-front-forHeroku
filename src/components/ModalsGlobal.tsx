@@ -18,26 +18,26 @@ function ModalsGlobal({ show, modalBody, onclickCheck, setToContainer, closeFunc
     <ModalSection show={show} setToContainer={setToContainer}>
       <ModalMainDiv>
         {modalBody && modalBody()}
+
         <button
-          style={{ display: !closeFunction || !onclickCheck ? "none" : undefined }}
+          style={{ display: !closeFunction ? "none" : undefined }}
           onClick={() => {
             if (closeFunction) {
               return closeFunction();
-            } else if (onclickCheck) {
-              onclickCheck && dispatch(onclickCheck());
             }
           }}
         >
           X
         </button>
       </ModalMainDiv>
+
       <DarkBackground
         setToContainer={setToContainer}
         onClick={() => {
           if (closeFunction) {
             return closeFunction();
           } else if (onclickCheck) {
-            onclickCheck && dispatch(onclickCheck());
+            dispatch(onclickCheck());
           }
         }}
       ></DarkBackground>
@@ -63,7 +63,7 @@ const ModalSection = styled.section<ModalProps>`
 const ModalMainDiv = styled.div`
   width: 60%;
   height: 60%;
-  min-height: 500px;
+  min-height: 70%;
   background-color: white;
   position: absolute;
   top: 15%;

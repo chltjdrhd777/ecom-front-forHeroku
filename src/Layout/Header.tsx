@@ -158,13 +158,21 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
       lastName,
     };
 
-    dispatch(userRegisters(sentData));
-    dispatch(loading("finishied"));
-    setRegisterEmail("");
-    setRegisterPassword("");
-    setFirstName("");
-    setLastName("");
-    dispatch(onRegisterClicked());
+    new Promise((resolve) => {
+      resolve(dispatch(userRegisters(sentData)));
+    }).then((result: any) => {
+      if (result.payload.status === 201) {
+        dispatch(loading("finishied"));
+        setRegisterEmail("");
+        setRegisterPassword("");
+        setFirstName("");
+        setLastName("");
+        alert(`${result.payload.data.message} plase login`);
+        dispatch(onRegisterClicked());
+      } else if (result.payload.status === 400) {
+        alert("cannot register");
+      }
+    });
   };
   const onRegisterCancel = () => {
     setRegisterEmail("");

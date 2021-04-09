@@ -46,7 +46,7 @@ function StorePageForSamsung(props: PramsType2) {
                             className="product_container"
                             key={index}
                             style={{ color: "black", textDecoration: "none" }}
-                            target="_blank"
+                            /*     target="_blank" */
                           >
                             <div className="product_images">
                               <img src={generatePublicUrl(each.productPictures[0].img)} alt="" />

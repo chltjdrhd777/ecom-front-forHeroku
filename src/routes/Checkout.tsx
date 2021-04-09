@@ -12,6 +12,7 @@ export interface TossedCheckoutInfo {
   everyItemArrayByKey: string[];
   totalPriceForShow: string;
   totalQuantityForShow: number;
+  RouterProps: RouteComponentProps;
 }
 
 export const TossedCheckoutInfo_Context = createContext<TossedCheckoutInfo | undefined>(undefined);
@@ -23,7 +24,7 @@ function Checkout(props: RouteComponentProps) {
 
   return (
     <>
-      <TossedCheckoutInfo_Context.Provider value={tossedCheckoutInfo}>
+      <TossedCheckoutInfo_Context.Provider value={{ ...tossedCheckoutInfo, RouterProps: props }}>
         <Header wantBarOnly>
           <CartContainer_Main style={{ height: "100%", minHeight: "600px", flexWrap: "wrap" }}>
             <MainCartPartArticle style={{ backgroundColor: "#e9f1f5" }}>

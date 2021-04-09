@@ -90,7 +90,10 @@ function ProductDetail(props: RouteComponentProps<{ productId: string; productSl
   return (
     <Header>
       {Object.keys(productDetail).length === 0 ? (
-        <div>sorry there is no product detail</div>
+        <div className="centering" style={{ height: "70vh" }}>
+          product loding
+          <Spinner animation="border" variant="primary" />
+        </div>
       ) : (
         <ProductDetailContainer>
           <article className="flex_imgBoxs_container">

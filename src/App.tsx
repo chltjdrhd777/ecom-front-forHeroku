@@ -11,6 +11,7 @@ import { refreshCart } from "redux/cartSlice";
 import Checkout from "routes/Checkout";
 import { getCookiesValue } from "util/cookie";
 import { getProductBySlug } from "redux/productslice";
+import Purchasement from "routes/Purchasement";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Switch>
           <Route path="/cart" component={CartPage} />
+          <Route path="/purchasement" component={Purchasement} />
           <Route path="/checkout/:test" component={Checkout} />
           <Route path="/:productSlug/:productId" component={ProductDetail} />
           <Route path="/:slug" component={ProductList} />
