@@ -11,7 +11,8 @@ import Dropdown from "components/DropDown";
 import "bootstrap/dist/css/bootstrap.css";
 import { Spinner } from "react-bootstrap";
 import { Link, RouteComponentProps } from "react-router-dom";
-import IndexingInput from "util/IndexingInput";
+import { Footer_Checkout } from "routes/Checkout";
+import SearchForm from "./SearchForm";
 
 function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: RouteComponentProps }>) {
   const { categories } = useSelector(selectCategory);
@@ -25,9 +26,6 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
 
   //make indexsing
   const nameList = docs && docs.map((eachProduct: any) => eachProduct.name);
-  /*  const [filteredNameList, setFilteredNamelist] = useState([] as string[]);
-  const [isResearched, setIsResearched] = useState(false);
-  const [serachValue, setSearchValue] = useState(""); */
 
   const renderCategory = (categoryList: any[]) => {
     let renderedCategory = [];
@@ -254,11 +252,6 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
         <>
           <Headerheader>
             <HeaderContainerdiv>
-              {/*  <div className="logo_input_cont">
-                <div className="header_logo" style={{ cursor: "pointer" }} onClick={onClickLogo}>
-                  <img src={Logo} alt="" />
-                </div>
-              </div> */}
               <div className="logo_input_cont">
                 <Link to="/" className="header_logo" style={{ cursor: "pointer" }} /* onClick={onClickLogo} */>
                   <img src={Logo} alt="" />
@@ -267,6 +260,12 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
             </HeaderContainerdiv>
           </Headerheader>
           {props.children}
+
+          <Footer_Checkout>
+            <article>
+              Policies|Terms of use|Security|Privacy|Infringement <span>@2007-2020 Flipkart.com</span>{" "}
+            </article>
+          </Footer_Checkout>
         </>
       ) : (
         <>
@@ -276,24 +275,11 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
           <Headerheader>
             <HeaderContainerdiv>
               <div className="logo_input_cont">
-                {/* <div className="header_logo" style={{ cursor: "pointer" }} onClick={onClickLogo}>
-                  <img src={Logo} alt="" />
-                </div> */}
-
                 <Link to="/" className="header_logo" style={{ cursor: "pointer" }} /* onClick={onClickLogo} */>
                   <img src={Logo} alt="" />
                 </Link>
 
-                <form
-                  className="header_input"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                  }}
-                >
-                  <IndexingInput targetData={nameList} />
-
-                  <BsSearch />
-                </form>
+                <SearchForm targetData={nameList} />
               </div>
 
               <div className="header_menues">
@@ -345,6 +331,11 @@ function Header(props: PropsWithChildren<{ wantBarOnly?: boolean; routerProps?: 
             <ul>{categories.categoryList !== undefined && categories.categoryList.length > 0 && renderCategory(categories.categoryList)}</ul>
           </SubMenueNav>
           {props.children}
+          <Footer_Checkout>
+            <article>
+              Policies|Terms of use|Security|Privacy|Infringement <span>@2007-2020 Flipkart.com</span>{" "}
+            </article>
+          </Footer_Checkout>
         </>
       )}
     </>

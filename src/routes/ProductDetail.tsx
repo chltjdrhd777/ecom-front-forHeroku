@@ -95,143 +95,145 @@ function ProductDetail(props: RouteComponentProps<{ productId: string; productSl
           <Spinner animation="border" variant="primary" />
         </div>
       ) : (
-        <ProductDetailContainer>
-          <article className="flex_imgBoxs_container">
-            {productPictures &&
-              productPictures.length > 0 &&
-              productPictures.map((eachImg: any, index: any) => {
-                return (
-                  <div className="img_thumbs" key={index}>
-                    <img
-                      src={generatePublicUrl(eachImg.img)}
-                      alt="product_imgThumb"
-                      onMouseOver={() => {
-                        onImgMouseOver(generatePublicUrl(eachImg.img));
-                      }}
-                    />
-                  </div>
-                );
-              })}
-          </article>
+        <>
+          <ProductDetailContainer>
+            <article className="flex_imgBoxs_container">
+              {productPictures &&
+                productPictures.length > 0 &&
+                productPictures.map((eachImg: any, index: any) => {
+                  return (
+                    <div className="img_thumbs" key={index}>
+                      <img
+                        src={generatePublicUrl(eachImg.img)}
+                        alt="product_imgThumb"
+                        onMouseOver={() => {
+                          onImgMouseOver(generatePublicUrl(eachImg.img));
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+            </article>
 
-          <article className="img_full">
-            <div className="img_container">
-              <img src={mouseOverImg} alt="" />
-            </div>
-          </article>
+            <article className="img_full">
+              <div className="img_container">
+                <img src={mouseOverImg} alt="" />
+              </div>
+            </article>
 
-          <article className="product_details">
-            {/* a> b> c> d */}
-            <div className="familyTree">
-              <ul>
-                {categoryTree[0] !== undefined && categoryTree.length > 0
-                  ? categoryTree.map((eachParent, index) => {
-                      return (
-                        <li key={index}>
-                          <Link to={`category/${eachParent.name}`}>
-                            {eachParent.name} <IoIosArrowForward />
-                          </Link>
-                        </li>
-                      );
-                    })
-                  : null}
+            <article className="product_details">
+              {/* a> b> c> d */}
+              <div className="familyTree">
+                <ul>
+                  {categoryTree[0] !== undefined && categoryTree.length > 0
+                    ? categoryTree.map((eachParent, index) => {
+                        return (
+                          <li key={index}>
+                            <p>
+                              {eachParent.name} <IoIosArrowForward />
+                            </p>
+                          </li>
+                        );
+                      })
+                    : null}
 
-                <li>
-                  <a href="#">{productDetail.name}</a>
-                </li>
-              </ul>
-            </div>
+                  <li>
+                    <p>{productDetail.name}</p>
+                  </li>
+                </ul>
+              </div>
 
-            {/* title */}
-            <p className="product_title">{productDetail.name}</p>
+              {/* title */}
+              <p className="product_title">{productDetail.name}</p>
 
-            <div>
-              <span className="rating">
-                4.3 <IoIosStar />
-              </span>
-              <span className="reviews">72,234 Ratings & 8,140 Reviews</span>
-            </div>
+              <div>
+                <span className="rating">
+                  4.3 <IoIosStar />
+                </span>
+                <span className="reviews">72,234 Ratings & 8,140 Reviews</span>
+              </div>
 
-            <div className="extra_offer">Extra $ 30% off</div>
+              <div className="extra_offer">Extra $ 30% off</div>
 
-            <div className="price_container">
-              <span className="price">$ 7812312</span>
-              <span className="discount"> 22% off</span>
-            </div>
+              <div className="price_container">
+                <span className="price">$ 7812312</span>
+                <span className="discount"> 22% off</span>
+              </div>
 
-            <div className="offerInfo">
-              <p>Available : {quantity}</p>
-              <p>
-                <span>Description</span>
-                <span>{description}</span>
-              </p>
-            </div>
+              <div className="offerInfo">
+                <p>Available : {quantity}</p>
+                <p>
+                  <span>Description</span>
+                  <span>{description}</span>
+                </p>
+              </div>
 
-            <div className="item_count_container">
-              <span>{`quantity : `}</span>
-              <button
-                onClick={() => {
-                  itemqty > 1 && setItemQty(itemqty - 1);
-                }}
-              >
-                -
-              </button>
-              <span>{itemqty}</span>
-              <button
-                onClick={() => {
-                  setItemQty(itemqty + 1);
-                }}
-              >
-                +
-              </button>
-            </div>
+              <div className="item_count_container">
+                <span>{`quantity : `}</span>
+                <button
+                  onClick={() => {
+                    itemqty > 1 && setItemQty(itemqty - 1);
+                  }}
+                >
+                  -
+                </button>
+                <span>{itemqty}</span>
+                <button
+                  onClick={() => {
+                    setItemQty(itemqty + 1);
+                  }}
+                >
+                  +
+                </button>
+              </div>
 
-            <ButtonContainer style={{ marginTop: "20px" }}>
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  background: addCartClicked ? "lightgray" : "orange",
-                }}
-                onClick={onAddCartHandler}
-              >
-                {addCartClicked ? (
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Spinner animation="border" style={{ marginRight: "10px" }} />
-                    please wait
-                  </div>
-                ) : (
-                  <>
-                    <IoIosCart /> add to your cart
-                  </>
-                )}
-              </Button>
+              <ButtonContainer style={{ marginTop: "20px" }}>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  style={{
+                    background: addCartClicked ? "lightgray" : "orange",
+                  }}
+                  onClick={onAddCartHandler}
+                >
+                  {addCartClicked ? (
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Spinner animation="border" style={{ marginRight: "10px" }} />
+                      please wait
+                    </div>
+                  ) : (
+                    <>
+                      <IoIosCart /> add to your cart
+                    </>
+                  )}
+                </Button>
 
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  background: buyNowClicked ? "lightgray" : `var(--main)`,
-                }}
-                onClick={() => {
-                  props.history.push("/cart");
-                }}
-              >
-                {buyNowClicked ? (
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Spinner animation="border" style={{ marginRight: "10px" }} />
-                    please wait
-                  </div>
-                ) : (
-                  <>
-                    <AiFillThunderbolt />
-                    go to your cart
-                  </>
-                )}
-              </Button>
-            </ButtonContainer>
-          </article>
-        </ProductDetailContainer>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  style={{
+                    background: buyNowClicked ? "lightgray" : `var(--main)`,
+                  }}
+                  onClick={() => {
+                    props.history.push("/cart");
+                  }}
+                >
+                  {buyNowClicked ? (
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Spinner animation="border" style={{ marginRight: "10px" }} />
+                      please wait
+                    </div>
+                  ) : (
+                    <>
+                      <AiFillThunderbolt />
+                      go to your cart
+                    </>
+                  )}
+                </Button>
+              </ButtonContainer>
+            </article>
+          </ProductDetailContainer>
+        </>
       )}
     </Header>
   );
@@ -307,7 +309,7 @@ const ProductDetailContainer = styled.div`
         & li {
           display: flex;
           align-items: center;
-          & a,
+          & p,
           svg {
             font-size: 1rem;
             color: gray;

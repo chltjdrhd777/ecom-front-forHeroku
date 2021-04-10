@@ -38,11 +38,11 @@ function Checkout(props: RouteComponentProps) {
               notWantToShow={!userData ? true : false}
             />
 
-            <Footer_Checkout>
+            {/*  <Footer_Checkout>
               <article>
                 Policies|Terms of use|Security|Privacy|Infringement <span>@2007-2020 Flipkart.com</span>{" "}
               </article>
-            </Footer_Checkout>
+            </Footer_Checkout> */}
           </CartContainer_Main>
         </Header>
       </TossedCheckoutInfo_Context.Provider>
@@ -50,7 +50,7 @@ function Checkout(props: RouteComponentProps) {
   );
 }
 
-const Footer_Checkout = styled.footer`
+export const Footer_Checkout = styled.footer`
   width: 100%;
   border-top: 1px solid lightgray;
   height: 150px;
